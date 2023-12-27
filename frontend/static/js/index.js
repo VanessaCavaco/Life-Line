@@ -1,4 +1,7 @@
 import AboutMe from "./views/AboutMe.js";
+import Experience from "./views/Experience.js";
+import Education from "./views/Education.js";
+import Projects from "./views/Projects.js";
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -8,21 +11,22 @@ const navigateTo = url => {
 const router = async () => {
     const routes = [
         { path: "/", view: AboutMe},
-        //{ path: "/experience" },
-        // { path: "/education/:id" },
-        // { path: "/projects" }
+        { path: "/experience", view: Experience},
+        { path: "/education", view: Education},
+        { path: "/projects", view: Projects}
     ];
 
     const potentialMatches = routes.map(route => {
         return {
             route,
-            // result: location.pathname.match(pathToRegex(route.path))
-            isMatch: location.pathname === route.path
+        
+            isMatch: new RegExp(`^${route.path}$`).test(location.pathname)
+
         };
     });
     
-    let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
-    
+    let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch);
+
     /* Route not found - return first route OR a specific "not-found" route */
     if (!match) {
         match = {
