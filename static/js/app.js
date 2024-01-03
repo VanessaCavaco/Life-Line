@@ -1,4 +1,4 @@
-import eventsData from './static/assets/data/events.json' assert { type: "json" };
+import eventsData from '../assets/data/events.json' assert { type: "json" };
 
 // Your SPA logic here...
 console.log(eventsData);
