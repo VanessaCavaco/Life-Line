@@ -44,7 +44,7 @@ async function addEducationEvents() {
 
 async function loadAboutMePage() {
   // gets HTML About me view
-  const response = await fetch('../static/html/AboutMe.html');
+  const response = await fetch('./static/html/AboutMe.html');
   if (!response.ok) {
     throw new Error(`Failed to fetch education.html: ${response.status}`);
   }
