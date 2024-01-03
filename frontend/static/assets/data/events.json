@@ -1,0 +1,74 @@
+[
+    {
+        "month": "July",
+        "year": "1990",
+        "type": "life",
+        "description": "I was born",
+        "where": "São Miguel, Açores, Portugal"
+    },
+    {
+        "month": "November",
+        "year": "2015",
+        "type": "Learn",
+        "description": "Finish my degree in Architecture",
+        "where": "Lisboa, Portugal"
+    },
+    {
+        "month": "October",
+        "year": "2023",
+        "type": "Learn",
+        "description": "Full-Stack Bootcamp in CodeOp",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "October",
+        "year": "2022",
+        "type": "Learn",
+        "description": "Front-End Bootcamp in CodeOp",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "June",
+        "year": "2023",
+        "type": "Learn",
+        "description": "Agile",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "November",
+        "year": "2017",
+        "type": "Learn",
+        "description": "Revit API",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "November",
+        "year": "2018",
+        "type": "Learn",
+        "description": "Revit API",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "November",
+        "year": "2019",
+        "type": "Learn",
+        "description": "Revit API",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "July",
+        "year": "2021",
+        "type": "work",
+        "description": "Project Manager at BIM consulting company, Voyansi",
+        "more": "At Voyansi, I belong to the Software team where we develop Software and Automations for the AECO industry",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "December",
+        "year": "2017",
+        "type": "Project",
+        "description": "Gave a Revit Training in Barcelona Activa",
+        "more": "",
+        "where": "Barcelona, España"
+    }
+]
