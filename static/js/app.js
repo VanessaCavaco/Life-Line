@@ -7,9 +7,9 @@ console.log(eventsData);
         
 async function loadEducationPage() {
   //gets educational html view
-  const response = await fetch('./static/html/education.html');
+  const response = await fetch('./static/html/Education.html');
   if (!response.ok) {
-      throw new Error(`Failed to fetch education.html: ${response.status}`);
+      throw new Error(`Failed to fetch Education.html: ${response.status}`);
   }
   //awaits the fectch response if it is successfull
   const educationHtml = await response.text();
@@ -46,7 +46,7 @@ async function loadAboutMePage() {
   // gets HTML About me view
   const response = await fetch('./static/html/AboutMe.html');
   if (!response.ok) {
-    throw new Error(`Failed to fetch education.html: ${response.status}`);
+    throw new Error(`Failed to fetch AboutMe.html: ${response.status}`);
   }
   //awaits the fectch response if it is successfull
   const aboutMeHtml = await response.text();
