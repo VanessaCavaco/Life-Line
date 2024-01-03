@@ -3,61 +3,65 @@ import eventsData from './static/assets/data/events.json' assert { type: "json" 
 // Your SPA logic here...
 console.log(eventsData);
 
-//*********** other option to fectch the json file.
-// async function fetchData() {
-//     try {
-//       const response = await fetch('./static/assets/data/events.json');
-//       if (!response.ok) {
-//         throw new Error(`Failed to fetch JSON: ${response.status}`);
-//       }
-  
-//       const jsonData = await response.json();
-//       console.log(jsonData);
-//     } catch (error) {
-//       console.error('Error fetching JSON:', error);
-//     }
-//   }
-  
-//   fetchData();
-
-
-//*********** function to load the html pages
-const order = [
-  './static/html/AboutMe.html',
-  './static/html/Education.html',
-];
-
-const router = async () => {
-  const container = document.querySelector('#app');
-
-  // Load HTML files sequentially based on the predefined order
-  for (const page of order) {
-      const view = await fetchHtml(page);
-      appendHtml(container, view);
-      await sleep(1000); // Optional delay between loading each page
-  }
-};
-
-const fetchHtml = async (page) => {
-  const response = await fetch(page);
+//********** load education page
+        
+async function loadEducationPage() {
+  //gets educational html view
+  const response = await fetch('./static/html/education.html');
   if (!response.ok) {
-      throw new Error(`Failed to fetch HTML: ${response.status}`);
+      throw new Error(`Failed to fetch education.html: ${response.status}`);
   }
-  return response.text();
+  //awaits the fectch response if it is successfull
+  const educationHtml = await response.text();
+  //Append the fectched html content to 'app' div
+  document.getElementById('app').insertAdjacentHTML('beforeend', educationHtml);
+}
+
+async function addEducationEvents() {
+  // gets education events container
+  const educationEventsContainer = document.getElementById('educationEvents-container');
+  console.log('container education', educationEventsContainer)
+   // Assuming eventsData is already available
+  if (!eventsData) {
+    // Handle the case where eventsData is not available
+    educationEventsContainer.innerHTML = '<p>No events data available.</p>';
+    return;
+  }
+  //Get only learn events and creates html
+  const educationEventsHtml = eventsData.filter((event) => event.type ==='Learn').map(event => `
+    <div>
+        <h2>${event.month} ${event.year}</h2>
+        <p>Type: ${event.type}</p>
+        <p>Description: ${event.description}</p>
+        <p>Where: ${event.where}</p>
+        ${event.more ? `<p>More: ${event.more}</p>` : ''}
+    </div>
+  `).join('');
+  console.log('educationEventsHtml', educationEventsHtml)
+  // Append the generated HTML to the container
+  educationEventsContainer.innerHTML = educationEventsHtml;
+}
+
+async function loadAboutMePage() {
+  // gets HTML About me view
+  const response = await fetch('./static/html/AboutMe.html');
+  if (!response.ok) {
+    throw new Error(`Failed to fetch education.html: ${response.status}`);
+  }
+  //awaits the fectch response if it is successfull
+  const aboutMeHtml = await response.text();
+  //append th fetched html content to 'app' div
+  document.getElementById('app').insertAdjacentHTML('beforeend', aboutMeHtml);
+  console.log('about me html', aboutMeHtml)
 };
 
-const appendHtml = (container, html) => {
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = html;
-  
-  // Append the content of the wrapper to the container
-  while (wrapper.firstChild) {
-      container.appendChild(wrapper.firstChild);
-  }
-};
-
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// Trigger the router
-router();
-
+////////////////////////Execute methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//DOM Listener makes sure all the content is loadel befere execute the methods
+document.addEventListener('DOMContentLoaded', async () => {
+  // loads About me page
+  await loadAboutMePage();
+  // Call the function to load 'education.html' and execute subsequent logic
+  await loadEducationPage();   
+  // call function to add education events
+  addEducationEvents();  
+});

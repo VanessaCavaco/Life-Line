@@ -35,8 +35,22 @@
         "where": "Barcelona, España"
     },
     {
-        "month": null,
-        "year": null,
+        "month": "November",
+        "year": "2017",
+        "type": "Learn",
+        "description": "Revit API",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "November",
+        "year": "2018",
+        "type": "Learn",
+        "description": "Revit API",
+        "where": "Barcelona, España"
+    },
+    {
+        "month": "November",
+        "year": "2019",
         "type": "Learn",
         "description": "Revit API",
         "where": "Barcelona, España"
