@@ -2,7 +2,7 @@
     {
         "month": "July",
         "year": "1990",
-        "type": "life",
+        "type": "Life",
         "description": "I was born",
         "where": "São Miguel, Açores, Portugal"
     },
@@ -58,7 +58,7 @@
     {
         "month": "July",
         "year": "2021",
-        "type": "work",
+        "type": "Work",
         "description": "Project Manager at BIM consulting company, Voyansi",
         "more": "At Voyansi, I belong to the Software team where we develop Software and Automations for the AECO industry",
         "where": "Barcelona, España"
