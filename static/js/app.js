@@ -1,6 +1,29 @@
 //Imports events.json data
 import eventsData from '../assets/data/events.json' assert { type: "json" };
 
+//********** order in reverse the evente **********\\  
+const monthOrder = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+eventsData.sort((a, b) => {
+  // Compare years first
+  const yearComparison = b.year.localeCompare(a.year);
+
+  // If years are equal, compare months based on their index in monthOrder
+  if (yearComparison === 0) {
+      const monthIndexA = monthOrder.indexOf(a.month);
+      const monthIndexB = monthOrder.indexOf(b.month);
+
+      return monthIndexB - monthIndexA;
+  }
+
+  return yearComparison;
+});
+
+console.log(eventsData);
+
 //********** load About Me page **********\\  
 async function loadAboutMePage() {
   // gets HTML About me view
