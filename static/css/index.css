@@ -1,40 +1,28 @@
 body {
-    --nav-width: 200px;
-    margin: 0 0 0 var(--nav-width);
+    /* --nav-width: 200px;
+    margin: 0 0 0 var(--nav-width);*/
     font-family: 'Quicksand', sans-serif;
-    font-size: 18px;
-}
-
-/* Creates a full-height, left-mounted navigation menu */
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--nav-width);
-    height: 100vh;
-    background: #222222;
-}
-
-/* Making these look fantastic */
-.nav__link {
-    display: block;
-    padding: 12px 18px;
-    text-decoration: none;
-    color: #eeeeee;
-    font-weight: 500;
-}
-
-.nav__link:hover {
-    background: rgba(255, 255, 255, 0.05);
+    font-size: 18px; 
 }
 
 #app {
-    margin: 2em;
+    /* margin: 2em;
     line-height: 1.5;
-    font-weight: 500;
+    font-weight: 500; */
 }
 
-/* The 'dcode' green always needs to make an appearance */
 a {
-    color: #009579;
+    color: #000000;
+    text-decoration: underline;
+}
+
+#portrait{
+    width: 10%;
+    border-radius: 50%;
+}
+
+div{
+    border-left: #000000;
+    border-width: 2px;
+    border-left-style: solid;
 }
