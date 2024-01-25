@@ -72,12 +72,12 @@
         "where": "Barcelona, España",
         "keywords":["C#","Revit API", "BIM Development","Project Manager", "Software development", "Frontend","Backend","Javascript","CSS","HTML","BIM","Tailwind"]
     },
-    // {
-    //     "month": "December",
-    //     "year": "2017",
-    //     "type": "Project",
-    //     "description": "Gave a Revit Training in Barcelona Activa",
-    //     "more": "",
-    //     "where": "Barcelona, España"
-    // }
+    {
+        "month": "December",
+        "year": "2017",
+        "type": "Project",
+        "description": "Gave a Revit Training in Barcelona Activa",
+        "more": "",
+        "where": "Barcelona, España"
+    }
 ]
