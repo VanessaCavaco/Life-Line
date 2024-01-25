@@ -4,71 +4,80 @@
         "year": "1990",
         "type": "Life",
         "description": "I was born",
-        "where": "São Miguel, Açores, Portugal"
+        "where": "São Miguel, Açores, Portugal",
+        "keywords":["Azores"]
     },
     {
         "month": "November",
         "year": "2015",
         "type": "Learn",
         "description": "Finish my degree in Architecture",
-        "where": "Lisboa, Portugal"
+        "where": "Lisboa, Portugal",
+        "keywords":["Lisbon","Architecture","BIM"]
     },
     {
         "month": "October",
         "year": "2023",
         "type": "Learn",
         "description": "Full-Stack Bootcamp in CodeOp",
-        "where": "Barcelona, España"
+        "where": "Barcelona, España",
+        "keywords":["Vue","React","Tailwind","CSS","HTML","Backend","Frontend","Full-Stack", "Javascript", "JEST","Software development"]
     },
     {
         "month": "October",
         "year": "2022",
         "type": "Learn",
         "description": "Front-End Bootcamp in CodeOp",
-        "where": "Barcelona, España"
+        "where": "Barcelona, España",
+        "keywords":["Vue","Tailwind","CSS","HTML","Frontend","Javascript","JEST","Software development","figma"]
     },
     {
         "month": "June",
         "year": "2023",
         "type": "Learn",
-        "description": "Agile",
-        "where": "Barcelona, España"
+        "description": "Advanced Program of Agile Project Management, SCRUM in Educatic",
+        "where": "Barcelona, España",
+        "keywords":["Agile","SCRUM", "Project Management"]
     },
     {
-        "month": "November",
-        "year": "2017",
+        "month": "December",
+        "year": "2020",
         "type": "Learn",
-        "description": "Revit API",
-        "where": "Barcelona, España"
+        "description": "Revit API with C#. Nivel 1 in BM learning hub",
+        "where": "Barcelona, España",
+        "keywords":["C#","Revit API", "BIM Development"]
     },
     {
-        "month": "November",
-        "year": "2018",
+        "month": "July",
+        "year": "2021",
         "type": "Learn",
-        "description": "Revit API",
-        "where": "Barcelona, España"
+        "description": "Revit API with C#. Nivel 2 in BM learning hub",
+        "where": "Barcelona, España",
+        "keywords":["C#","Revit API", "BIM Development"]
     },
     {
-        "month": "November",
-        "year": "2019",
+        "month": "August",
+        "year": "2021",
         "type": "Learn",
-        "description": "Revit API",
-        "where": "Barcelona, España"
+        "description": "Revit API with C#. Nivel 3 in BM learning hub",
+        "where": "Barcelona, España",
+        "keywords":["C#","Revit API", "BIM Development"]
     },
     {
         "month": "July",
         "year": "2021",
         "type": "Work",
-        "description": "Project Manager at BIM consulting company, Voyansi",
-        "more": "At Voyansi, I belong to the Software team where we develop Software and Automations for the AECO industry",
-        "where": "Barcelona, España"
+        "description": "Project Manager & Software developer at BIM consulting company, Voyansi",
+        "more": "At Voyansi, I am a member of the Software team where we develop software and automations for the AECO industry. I have a hybrid profile, engaging in daily project management, participating in discovery meetings, and meeting with customers. Additionally, I make software development contributions to various projects.",
+        "where": "Barcelona, España",
+        "keywords":["C#","Revit API", "BIM Development","Project Manager", "Software development", "Frontend","Backend","Javascript","CSS","HTML","BIM","Tailwind"]
     },
-    {
-        "month": "December",
-        "year": "2017",
-        "type": "Project",
-        "description": "Gave a Revit Training in Barcelona Activa",
-        "more": "",
-        "where": "Barcelona, España"
-    }
+    // {
+    //     "month": "December",
+    //     "year": "2017",
+    //     "type": "Project",
+    //     "description": "Gave a Revit Training in Barcelona Activa",
+    //     "more": "",
+    //     "where": "Barcelona, España"
+    // }
 ]
