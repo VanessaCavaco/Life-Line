@@ -18,7 +18,6 @@ eventsData.sort((a, b) => {
 
       return monthIndexB - monthIndexA;
   }
-
   return yearComparison;
 });
 
@@ -37,30 +36,31 @@ async function loadAboutMePage() {
   document.getElementById('app').insertAdjacentHTML('beforeend', aboutMeHtml);
 };
 
-//********** load experience page **********\\     
-async function loadExperiencePage() {
+//********** load event html**********\\     
+async function loadEventHtml(eventType) {
   //gets experience html view
-  const response = await fetch('./static/html/Experience.html');
+  const response = await fetch(`./static/html/${eventType}.html`);
   if (!response.ok) {
-      throw new Error(`Failed to fetch Experience.html: ${response.status}`);
+    throw new Error(`Failed to fetch ${eventType}.html: ${response.status}`);
   }
   //awaits the fectch response if it is successfull
-  const experienceHtml = await response.text();
+  const eventHtml = await response.text();
   //Append the fectched html content to 'app' div
-  document.getElementById('app').insertAdjacentHTML('beforeend', experienceHtml);
+  document.getElementById('app').insertAdjacentHTML('beforeend', eventHtml);
 }
 
-async function addExperienceEvents() {
+//********** add events to html**********\\     
+async function addEvents(eventType,type) {
   // gets experience events container
-  const experienceEventsContainer = document.getElementById('experienceEvents-container');
+  const eventsContainer = document.getElementById(`${eventType}Events-container`);
    // Assuming eventsData is already available
   if (!eventsData) {
     // Handle the case where eventsData is not available
-    experienceEventsContainer.innerHTML = '<p>No events data available.</p>';
+    eventsContainer.innerHTML = '<p>No events data available.</p>';
     return;
   }
-  //Get only learn events and creates html
-  const experienceEventsHtml = eventsData.filter((event) => event.type ==='Work').map(event => `
+  //Get only eventTypw events and creates html
+  const eventsHtml = eventsData.filter((event) => event.type === type).map(event => `
     <div>
       <h2>${event.month} ${event.year}</h2>
       <p>Type: ${event.type}</p>
@@ -69,139 +69,30 @@ async function addExperienceEvents() {
       ${event.more ? `<p>More: ${event.more}</p>` : ''}
     </div>
   `).join('');
-  console.log("experience events", experienceEventsHtml)
+  console.log(`${eventType} events`, eventsHtml)
   // Append the generated HTML to the container
-  experienceEventsContainer.innerHTML = experienceEventsHtml;
-}
-
-//********** load education page **********\\     
-async function loadEducationPage() {
-  //gets educational html view
-  const response = await fetch('./static/html/Education.html');
-  if (!response.ok) {
-      throw new Error(`Failed to fetch Education.html: ${response.status}`);
-  }
-  //awaits the fectch response if it is successfull
-  const educationHtml = await response.text();
-  //Append the fectched html content to 'app' div
-  document.getElementById('app').insertAdjacentHTML('beforeend', educationHtml);
-}
-
-async function addEducationEvents() {
-  // gets education events container
-  const educationEventsContainer = document.getElementById('educationEvents-container');
-   // Assuming eventsData is already available
-  if (!eventsData) {
-    // Handle the case where eventsData is not available
-    educationEventsContainer.innerHTML = '<p>No events data available.</p>';
-    return;
-  }
-  //Get only learn events and creates html
-  const educationEventsHtml = eventsData.filter((event) => event.type ==='Learn').map(event => `
-    <div>
-      <h2>${event.month} ${event.year}</h2>
-      <p>Type: ${event.type}</p>
-      <p>Description: ${event.description}</p>
-      <p>Where: ${event.where}</p>
-      ${event.more ? `<p>More: ${event.more}</p>` : ''}
-    </div>
-  `).join('');
-  // Append the generated HTML to the container
-  educationEventsContainer.innerHTML = educationEventsHtml;
-}
-
-//********** load projects page **********\\     
-async function loadProjectsPage() {
-  //gets projects html view
-  const response = await fetch('./static/html/Projects.html');
-  if (!response.ok) {
-      throw new Error(`Failed to fetch Projects.html: ${response.status}`);
-  }
-  //awaits the fectch response if it is successfull
-  const projectsHtml = await response.text();
-  //Append the fectched html content to 'app' div
-  document.getElementById('app').insertAdjacentHTML('beforeend', projectsHtml);
-}
-
-async function addProjectsEvents() {
-  // gets projects events container
-  const projectsEventsContainer = document.getElementById('projectsEvents-container');
-   // Assuming eventsData is already available
-  if (!eventsData) {
-    // Handle the case where eventsData is not available
-    projectsEventsContainer.innerHTML = '<p>No events data available.</p>';
-    return;
-  }
-  //Get only learn events and creates html
-  const projectsEventsHtml = eventsData.filter((event) => event.type ==='Project').map(event => `
-    <div>
-    <h2>${event.month} ${event.year}</h2>
-    <p>Type: ${event.type}</p>
-    <p>Description: ${event.description}</p>
-    <p>Where: ${event.where}</p>
-    ${event.more ? `<p>More: ${event.more}</p>` : ''}
-    </div>
-  `).join('');
-  // Append the generated HTML to the container
-  projectsEventsContainer.innerHTML = projectsEventsHtml;
-}
-
-//********** load life page **********\\     
-async function loadLifePage() {
-  //gets life html view
-  const response = await fetch('./static/html/Life.html');
-  if (!response.ok) {
-      throw new Error(`Failed to fetch Life.html: ${response.status}`);
-  }
-  //awaits the fectch response if it is successfull
-  const lifeHtml = await response.text();
-  //Append the fectched html content to 'app' div
-  document.getElementById('app').insertAdjacentHTML('beforeend', lifeHtml);
-}
-
-async function addLifeEvents() {
-  // gets life events container
-  const lifeEventsContainer = document.getElementById('lifeEvents-container');
-   // Assuming eventsData is already available
-  if (!eventsData) {
-    // Handle the case where eventsData is not available
-    lifeEventsContainer.innerHTML = '<p>No events data available.</p>';
-    return;
-  }
-  //Get only life events and creates html
-  const lifeEventsHtml = eventsData.filter((event) => event.type ==='Life').map(event => `
-    <div>
-      <h2>${event.month} ${event.year}</h2>
-      <p>Type: ${event.type}</p>
-      <p>Description: ${event.description}</p>
-      <p>Where: ${event.where}</p>
-      ${event.more ? `<p>More: ${event.more}</p>` : ''}
-    </div>
-  `).join('');
-  console.log("life events",lifeEventsHtml)
-  // Append the generated HTML to the container
-  lifeEventsContainer.innerHTML = lifeEventsHtml;
+  eventsContainer.innerHTML = eventsHtml;
 }
 
 ////////////////////////Execute methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//DOM Listener makes sure all the content is loaded befere execute the methods
+//DOM Listener makes sure all the content is loaded before execute the methods
 document.addEventListener('DOMContentLoaded', async () => {
-  // loads About me page
-  await loadAboutMePage();
+  // // loads About me page
+  await loadEventHtml("aboutMe");
   // Call the function to load 'experience.html' and execute subsequent logic
-  await loadExperiencePage();   
+  await loadEventHtml("experience");
   // call function to add experience events
-  addExperienceEvents();
+  await addEvents("experience","Work");
   // Call the function to load 'education.html' and execute subsequent logic
-  await loadEducationPage();   
+  await loadEventHtml("education");
   // call function to add education events
-  addEducationEvents();  
+  await addEvents("education","Learn");
   // Call the function to load 'projects.html' and execute subsequent logic
-  await loadProjectsPage();   
+  await loadEventHtml("projects");
   // call function to add projects events
-  addProjectsEvents();  
+  await addEvents("projects","Project");
   // Call the function to load 'life.html' and execute subsequent logic
-  await loadLifePage();   
+  await loadEventHtml("life");
   // call function to add projects events
-  addLifeEvents();  
+  await addEvents("life","Life");
 });
