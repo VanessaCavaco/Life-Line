@@ -1,5 +1,6 @@
 //Imports events.json data
-import eventsData from '../assets/data/events.json' assert { type: "json" };
+import eventsData from '../assets/data/events.json' with { type: "json" };
+import eventsTypeHierachy from '../assets/data/eventsTypeHierachy.json' with { type: "json" };
 
 //********** order in reverse the evente **********\\  
 const monthOrder = [
