@@ -1,6 +1,6 @@
 //Imports events.json data
 import eventsData from '../assets/data/events.json' with { type: "json" };
-import eventsTypeHierachy from '../assets/data/eventsTypeHierachy.json' with { type: "json" };
+import eventsTypeHierarchy from '../assets/data/eventsTypeHierarchy.json' with { type: "json" };
 
 //********** order in reverse the evente **********\\  
 const monthOrder = [
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // loads About me page
   await loadEventsContainer("aboutMe");
   //Loads other pages and events
-  eventsTypeHierachy.forEach(async(event)=>{
+  eventsTypeHierarchy.forEach(async(event)=>{
     await loadEventsContainer(event.eventTypeName)
     await addEvents(event.eventTypeName, event.type)
   })
