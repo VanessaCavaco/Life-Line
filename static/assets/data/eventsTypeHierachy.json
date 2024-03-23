@@ -1,0 +1,18 @@
+[
+    {
+        "eventTypeName":"life",
+        "type": "Life"
+    },
+    {
+        "eventTypeName":"education",
+        "type": "Learn"
+    },
+    {
+        "eventTypeName":"experience",
+        "type": "Work"
+    },
+    {
+        "eventTypeName":"projects",
+        "type": "Project"
+    }
+]
