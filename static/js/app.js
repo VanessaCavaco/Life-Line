@@ -36,20 +36,20 @@ async function loadAboutMePage() {
   document.getElementById('app').insertAdjacentHTML('beforeend', aboutMeHtml);
 };
 
-//********** load event html**********\\     
-async function loadEventHtml(eventType) {
+//********** load event html **********\\     
+async function loadEventsContainer(eventType) {
   //gets experience html view
   const response = await fetch(`./static/html/${eventType}.html`);
   if (!response.ok) {
     throw new Error(`Failed to fetch ${eventType}.html: ${response.status}`);
   }
   //awaits the fectch response if it is successfull
-  const eventHtml = await response.text();
+  const eventsContainer = await response.text();
   //Append the fectched html content to 'app' div
-  document.getElementById('app').insertAdjacentHTML('beforeend', eventHtml);
+  document.getElementById('app').insertAdjacentHTML('beforeend', eventsContainer);
 }
 
-//********** add events to html**********\\     
+//********** add events to html **********\\     
 async function addEvents(eventType,type) {
   // gets experience events container
   const eventsContainer = document.getElementById(`${eventType}Events-container`);
@@ -59,7 +59,7 @@ async function addEvents(eventType,type) {
     eventsContainer.innerHTML = '<p>No events data available.</p>';
     return;
   }
-  //Get only eventTypw events and creates html
+  //Get only eventType events and creates html
   const eventsHtml = eventsData.filter((event) => event.type === type).map(event => `
     <div>
       <h2>${event.month} ${event.year}</h2>
@@ -74,25 +74,16 @@ async function addEvents(eventType,type) {
   eventsContainer.innerHTML = eventsHtml;
 }
 
+
+
 ////////////////////////Execute methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //DOM Listener makes sure all the content is loaded before execute the methods
-document.addEventListener('DOMContentLoaded', async () => {
-  // // loads About me page
-  await loadEventHtml("aboutMe");
-  // Call the function to load 'experience.html' and execute subsequent logic
-  await loadEventHtml("experience");
-  // call function to add experience events
-  await addEvents("experience","Work");
-  // Call the function to load 'education.html' and execute subsequent logic
-  await loadEventHtml("education");
-  // call function to add education events
-  await addEvents("education","Learn");
-  // Call the function to load 'projects.html' and execute subsequent logic
-  await loadEventHtml("projects");
-  // call function to add projects events
-  await addEvents("projects","Project");
-  // Call the function to load 'life.html' and execute subsequent logic
-  await loadEventHtml("life");
-  // call function to add projects events
-  await addEvents("life","Life");
+document.addEventListener('DOMContentLoaded', async () => {  
+  // loads About me page
+  await loadEventsContainer("aboutMe");
+  //Loads other pages and events
+  eventsTypeHierachy.forEach(async(event)=>{
+    await loadEventsContainer(event.eventTypeName)
+    await addEvents(event.eventTypeName, event.type)
+  })
 });

@@ -58,7 +58,7 @@
     {
         "month": "August",
         "year": "2021",
-        "type": "Learn",
+        "type":"Learn",
         "description": "Revit API with C#. Nivel 3 in BM learning hub",
         "where": "Barcelona, España",
         "keywords":["C#","Revit API", "BIM Development"]
