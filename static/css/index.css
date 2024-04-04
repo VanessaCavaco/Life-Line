@@ -12,17 +12,49 @@ body {
 }
 
 a {
-    color: #000000;
+    color: #505050;
     text-decoration: underline;
 }
 
-#portrait{
-    width: 10%;
-    border-radius: 50%;
+h2{
+    font-size: 20px;
+}
+#portait-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height: 150px;
 }
 
-/* div{
-    border-left: #000000;
-    border-width: 2px;
-    border-left-style: solid;
+#portrait{
+    width: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+}
+
+#aboutMe-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+#aboutMe-textContainer{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #505050;;
+    border-width: 15px;
+}
+p{
+    text-align: justify;
+}
+
+/* .aboutMe-h1 .aboutMe-h2 .aboutMe-h3 .aboutMe-p{
+    margin: auto auto 0 0;
 } */
