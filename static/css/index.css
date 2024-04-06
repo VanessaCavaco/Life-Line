@@ -1,14 +1,20 @@
-body {
-    /* --nav-width: 200px;
-    margin: 0 0 0 var(--nav-width);*/
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px; 
+
+:root{
+    --background-color: #000000;
+    --border-color: #505050;
+    --font-family: 'Quicksand', sans-serif;
+    --font-color: #ffffff;
+    --font-size-h1: 22px;
+    --font-size-h2: 20px;
+    --font-size-h3: 18px;
+    --font-size-p: 16px;
 }
 
 #app {
-    /* margin: 2em;
-    line-height: 1.5;
-    font-weight: 500; */
+    font-family: var(--font-family);
+    font-size: var(--font-size-p);
+    color: var(--font-color);
+    background-color: var(--background-color);
 }
 
 a {
@@ -17,9 +23,10 @@ a {
 }
 
 h2{
-    font-size: 20px;
+    font-size: var(--font-size-h2);
 }
-#portait-container{
+
+.portait-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,20 +34,20 @@ h2{
     height: 150px;
 }
 
-#portrait{
+.portrait{
     width: 150px;
     border-radius: 50%;
     position: absolute;
     top: 50px;
 }
 
-#aboutMe-container{
+.aboutMe-container{
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
-#aboutMe-textContainer{
+.aboutMe-textContainer{
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -48,13 +55,50 @@ h2{
     align-items: center;
     border-radius: 15px;
     border-style: solid;
-    border-color: #505050;;
+    border-color: #505050;
     border-width: 15px;
 }
 p{
     text-align: justify;
 }
-
-/* .aboutMe-h1 .aboutMe-h2 .aboutMe-h3 .aboutMe-p{
-    margin: auto auto 0 0;
-} */
+.years-container{
+    height: fit-content;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.year-line{
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color);
+    grid-column: 3;
+}
+.year{
+    display: grid;
+    grid-template-columns: auto auto 20px auto auto;
+    height:100px;
+}
+.year-experience{
+    height: 100%;
+    width: 100%;
+    grid-column: 1;
+    background-color: aquamarine;
+}
+.year-education{
+    height: 100%;
+    width: 100%;
+    grid-column: 5;
+    background-color: aqua;
+}
+.year-projects1{
+    height: 100%;
+    width: 100%;
+    grid-column: 2;
+    background-color: blueviolet;
+}
+.year-projects2{
+    height: 100%;
+    width: 100%;
+    grid-column: 4;
+    background-color: chocolate;
+}
