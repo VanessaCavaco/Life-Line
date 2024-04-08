@@ -67,38 +67,44 @@ p{
     display: grid;
     grid-template-columns: 1fr;
 }
+.year{
+    display: grid;
+    grid-template-columns: auto auto 20px auto auto;
+    grid-template-rows: 1fr;
+    height:100px;
+}
 .year-line{
     height: 100%;
     width: 100%;
     background-color: var(--border-color);
     grid-column: 3;
-}
-.year{
-    display: grid;
-    grid-template-columns: auto auto 20px auto auto;
-    height:100px;
+    grid-row: 1;
 }
 .year-experience{
     height: 100%;
     width: 100%;
     grid-column: 1;
+    grid-row: 1;
     background-color: aquamarine;
 }
 .year-education{
     height: 100%;
     width: 100%;
     grid-column: 5;
+    grid-row: 1;
     background-color: aqua;
 }
 .year-projects1{
     height: 100%;
     width: 100%;
     grid-column: 2;
+    grid-row: 1;
     background-color: blueviolet;
 }
 .year-projects2{
     height: 100%;
     width: 100%;
     grid-column: 4;
+    grid-row: 1;
     background-color: chocolate;
 }
