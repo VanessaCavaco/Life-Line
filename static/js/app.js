@@ -81,17 +81,20 @@ function addYear(year) {
 }
 
 //********** add events to html **********\\     
-async function addEvents(eventType,type) {
-  // gets experience events container
-  const eventsContainer = document.getElementById(`${eventType}Events-container`);
+async function addEvents() {
    // Assuming eventsData is already available
   if (!eventsData) {
     // Handle the case where eventsData is not available
     eventsContainer.innerHTML = '<p>No events data available.</p>';
     return;
   }
-  //Get only eventType events and creates html
-  const eventsHtml = eventsData.filter((event) => event.type === type).map(event => `
+  eventsData.forEach(event => {
+    //get the conainer accordingly with the year and event type
+    const yearContainer = document.getElementById(`${event.year}`);
+    const yearRightDiv = yearContainer.querySelectorAll('.year-right')[0];
+    const yearLeftDiv = yearContainer.querySelectorAll('.year-left')[0];
+    
+    const eventsHtml =  `
     <div>
       <h2>${event.month} ${event.year}</h2>
       <p>Type: ${event.type}</p>
@@ -99,10 +102,16 @@ async function addEvents(eventType,type) {
       <p>Where: ${event.where}</p>
       ${event.more ? `<p>More: ${event.more}</p>` : ''}
     </div>
-  `).join('');
-  console.log(`${eventType} events`, eventsHtml)
-  // Append the generated HTML to the container
-  eventsContainer.innerHTML = eventsHtml;
+     `
+    // Append the generated HTML to the container
+    if (event.type == "Learn") {
+       yearLeftDiv.innerHTML = eventsHtml;
+    }else if(event.type == "Work"){
+      yearRightDiv.innerHTML = eventsHtml;
+    }else if(event.type == "Project"){
+      event.year%2 != 0 ? yearLeftDiv.innerHTML = eventsHtml : yearRightDiv.innerHTML = eventsHtml;
+    }
+  });
 }
 
 ////////////////////////Execute methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -116,9 +125,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   for(let year in uniqueYears){
     addYear(uniqueYears[year]);
   }
-  //Loads other pages and events
-  eventsTypeHierarchy.forEach(async(event)=>{
-    await loadEventsContainer(event.eventTypeName)
-    await addEvents(event.eventTypeName, event.type)
-  })
+  //Load Events
+  await addEvents();
 });
