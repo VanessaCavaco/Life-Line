@@ -55,33 +55,27 @@ async function loadEventsContainer(eventType) {
 //********** load years divs ************\\
 function addYear(year) {
   // Create a new div element
-  var newYearDiv = document.createElement('div');
+  let newYearDiv = document.createElement('div');
   // Assign an id to the new div
   newYearDiv.id = `${year}`;
-   // Assign a class year to the new div
-   newYearDiv.className = "year";
+  // Assign a class year to the new div
+  newYearDiv.className = "year";
   // Add content to the new div (optional)
   newYearDiv.textContent = `${year}`;
     // Create a new div element for Experience, Education, Projects and line
-    let experienceDiv = document.createElement('div');
-    let educationDiv = document.createElement('div');
-    let project1Div = document.createElement('div');
-    let project2Div = document.createElement('div');
+    let rightDiv = document.createElement('div');
+    let leftDiv = document.createElement('div');
     let lineDiv = document.createElement('div');
     //Assign the class for each div
-    experienceDiv.className = "year-experience";
-    educationDiv.className = "year-education";
-    project1Div.className = "year-projects1";
-    project2Div.className = "year-projects2";
+    rightDiv.className = "year-right";
+    leftDiv.className = "year-left";
     lineDiv.className = "year-line";
     //append to newYearDiv
-    newYearDiv.appendChild(experienceDiv);
-    newYearDiv.appendChild(educationDiv);
-    newYearDiv.appendChild(project1Div);
-    newYearDiv.appendChild(project2Div);
+    newYearDiv.appendChild(rightDiv);
+    newYearDiv.appendChild(leftDiv);
     newYearDiv.appendChild(lineDiv);
   // Get the container div where you want to add the new div
-  var containerDiv = document.getElementById('yearsStructure');
+  let containerDiv = document.getElementById('yearsStructure');
   // Append the new div to the container div
   containerDiv.appendChild(newYearDiv);
 }
