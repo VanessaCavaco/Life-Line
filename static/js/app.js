@@ -61,7 +61,7 @@ function addYear(year) {
   // Assign a class year to the new div
   newYearDiv.className = "year";
   // Add content to the new div (optional)
-  newYearDiv.textContent = `${year}`;
+  //newYearDiv.textContent = `${year}`;
     // Create a new div element for Experience, Education, Projects and line
     let rightDiv = document.createElement('div');
     let leftDiv = document.createElement('div');
@@ -95,7 +95,7 @@ async function addEvents() {
     const yearLeftDiv = yearContainer.querySelectorAll('.year-left')[0];
     
     const eventsHtml =  `
-    <div>
+    <div class = "event">
       <h2>${event.month} ${event.year}</h2>
       <p>Type: ${event.type}</p>
       <p>Description: ${event.description}</p>
