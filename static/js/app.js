@@ -89,18 +89,26 @@ async function addEvents() {
     return;
   }
   eventsData.forEach(event => {
-    //get the conainer accordingly with the year and event type
+    //get the container accordingly with the year and event type
     const yearContainer = document.getElementById(`${event.year}`);
     const yearRightDiv = yearContainer.querySelectorAll('.year-right')[0];
     const yearLeftDiv = yearContainer.querySelectorAll('.year-left')[0];
     
+    //Keywords to string
+    let keywordsString = "#";
+    if(event.keywords.length>0){
+      keywordsString += event.keywords.join(" #");
+    } else{
+      keywordsString = "";
+    }
+
     const eventsHtml =  `
-    <div class = "event">
-      <h2>${event.month} ${event.year}</h2>
-      <p>Type: ${event.type}</p>
-      <p>Description: ${event.description}</p>
-      <p>Where: ${event.where}</p>
-      ${event.more ? `<p>More: ${event.more}</p>` : ''}
+    <div class = "event-${event.type}">
+    <h2>${event.month} ${event.year}</h2>
+    <p>${event.where}</p>
+    <p>${event.description}</p>
+    ${event.more ? `<p>${event.more}</p>` : ''}
+    ${keywordsString ? `<p>${keywordsString}</p>` : ''}
     </div>
      `
     // Append the generated HTML to the container
@@ -121,6 +129,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadEventsContainer("aboutMe");
   //loads Years Structure
   await loadEventsContainer("yearsStructure");
+  // loads Life page
+  await loadEventsContainer("life");
   //add years divs
   for(let year in uniqueYears){
     addYear(uniqueYears[year]);

@@ -1,13 +1,5 @@
 [
     {
-        "month": "July",
-        "year": "1990",
-        "type": "Life",
-        "description": "I was born",
-        "where": "São Miguel, Açores, Portugal",
-        "keywords":["Azores"]
-    },
-    {
         "month": "November",
         "year": "2015",
         "type": "Learn",
@@ -78,7 +70,8 @@
         "type": "Project",
         "description": "Revit Trainer until 2019",
         "more": "I have carried out different types of training, individual and for groups of 25 people with a duration of 100 hours through Barcelona Activa, among other companies.",
-        "where": "Barcelona, España"
+        "where": "Barcelona, España",
+        "keywords":[]
     },
     {
         "month": "December",
@@ -86,7 +79,8 @@
         "type": "Project",
         "description": "Revit Trainer until 2019",
         "more": "I have carried out different types of training, individual and for groups of 25 people with a duration of 100 hours through Barcelona Activa, among other companies.",
-        "where": "Barcelona, España"
+        "where": "Barcelona, España",
+        "keywords":[]
     },
     {
         "month": "April",
