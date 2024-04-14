@@ -24,18 +24,8 @@ eventsData.sort((a, b) => {
 
 console.log(eventsData);
 
-//********** load About Me page **********\\  
-async function loadAboutMePage() {
-  // gets HTML About me view
-  const response = await fetch('./static/html/AboutMe.html');
-  if (!response.ok) {
-    throw new Error(`Failed to fetch AboutMe.html: ${response.status}`);
-  }
-  //awaits the fectch response if it is successfull
-  const aboutMeHtml = await response.text();
-  //append the fetched html content to 'app' div
-  document.getElementById('app').insertAdjacentHTML('beforeend', aboutMeHtml);
-};
+// Extract unique years
+const uniqueYears = [...new Set(eventsData.map(item => item.year))];
 
 //********** load event html **********\\     
 async function loadEventsContainer(eventType) {
@@ -49,42 +39,98 @@ async function loadEventsContainer(eventType) {
   //Append the fectched html content to 'app' div
   document.getElementById('app').insertAdjacentHTML('beforeend', eventsContainer);
 }
+//********** load years divs ************\\
+function addYears(yearArray) {
+  // Get the container div where you want to add the new div
+  let containerDiv = document.getElementById('yearsStructure');
+  if(yearArray.length>0){
+    for(let year in yearArray){
+      // Create a new div element
+      let newYearDiv = document.createElement('div');
+      // Assign an id to the new div
+      newYearDiv.id = `${yearArray[year]}`;
+      // Assign a class year to the new div
+      newYearDiv.className = "year";
+      // Create a new div element for right and left and adds className
+      let rightDiv = document.createElement('div');
+      rightDiv.className = "year-right";
+      let leftDiv = document.createElement('div');
+      leftDiv.className = "year-left";
+      // Create a new div element for Line and add className
+      let lineDiv
+      if(year == 0){
+        lineDiv = document.createElement('div');
+        lineDiv.className = "year-lineTop";
+      }else if(year == yearArray.length-1){
+        lineDiv = document.createElement('div');
+        lineDiv.className = "year-lineBottom"; 
+      }else{
+        lineDiv = document.createElement('div');
+        lineDiv.className = "year-line"; 
+      }
+      //append to newYearDiv
+      newYearDiv.appendChild(rightDiv);
+      newYearDiv.appendChild(leftDiv);
+      newYearDiv.appendChild(lineDiv);
+      // Append the new div to the container div
+      containerDiv.appendChild(newYearDiv);
+    }
+  }
+}
 
 //********** add events to html **********\\     
-async function addEvents(eventType,type) {
-  // gets experience events container
-  const eventsContainer = document.getElementById(`${eventType}Events-container`);
+async function addEvents() {
    // Assuming eventsData is already available
   if (!eventsData) {
     // Handle the case where eventsData is not available
     eventsContainer.innerHTML = '<p>No events data available.</p>';
     return;
   }
-  //Get only eventType events and creates html
-  const eventsHtml = eventsData.filter((event) => event.type === type).map(event => `
-    <div>
-      <h2>${event.month} ${event.year}</h2>
-      <p>Type: ${event.type}</p>
-      <p>Description: ${event.description}</p>
-      <p>Where: ${event.where}</p>
-      ${event.more ? `<p>More: ${event.more}</p>` : ''}
+  eventsData.forEach(event => {
+    //get the container accordingly with the year and event type
+    const yearContainer = document.getElementById(`${event.year}`);
+    const yearRightDiv = yearContainer.querySelectorAll('.year-right')[0];
+    const yearLeftDiv = yearContainer.querySelectorAll('.year-left')[0];
+    
+    //Keywords to string
+    let keywordsString = "#";
+    if(event.keywords.length>0){
+      keywordsString += event.keywords.join(" #");
+    } else{
+      keywordsString = "";
+    }
+
+    const eventsHtml =  `
+    <div class = "event-${event.type}">
+    <h2>${event.month} ${event.year}</h2>
+    <p>${event.where}</p>
+    <p>${event.description}</p>
+    ${event.more ? `<p>${event.more}</p>` : ''}
+    ${keywordsString ? `<p class="keywords">${keywordsString}</p>` : ''}
     </div>
-  `).join('');
-  console.log(`${eventType} events`, eventsHtml)
-  // Append the generated HTML to the container
-  eventsContainer.innerHTML = eventsHtml;
+     `
+    // Append the generated HTML to the container
+    if (event.type == "Learn") {
+       yearLeftDiv.innerHTML = eventsHtml;
+    }else if(event.type == "Work"){
+      yearRightDiv.innerHTML = eventsHtml;
+    }else if(event.type == "Project"){
+      event.year%2 != 0 ? yearLeftDiv.innerHTML = eventsHtml : yearRightDiv.innerHTML = eventsHtml;
+    }
+  });
 }
-
-
 
 ////////////////////////Execute methods\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //DOM Listener makes sure all the content is loaded before execute the methods
 document.addEventListener('DOMContentLoaded', async () => {  
   // loads About me page
   await loadEventsContainer("aboutMe");
-  //Loads other pages and events
-  eventsTypeHierarchy.forEach(async(event)=>{
-    await loadEventsContainer(event.eventTypeName)
-    await addEvents(event.eventTypeName, event.type)
-  })
+  //loads Years Structure
+  await loadEventsContainer("yearsStructure");
+  // loads Life page
+  await loadEventsContainer("life");
+  //add years divs
+  addYears(uniqueYears);
+  //Load Events
+  await addEvents();
 });

@@ -1,28 +1,182 @@
-body {
-    /* --nav-width: 200px;
-    margin: 0 0 0 var(--nav-width);*/
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px; 
+
+:root{
+    --background-color: #000000;
+    --border-color: #505050;
+    --font-family: 'Quicksand', sans-serif;
+    --font-color: #ffffff;
+    --education-color: #6ADFC1;
+    --project-color: #EA638D;
+    --work-color: #F6D95F;
+    --font-size-h1: 22px;
+    --font-size-h2: 20px;
+    --font-size-h3: 18px;
+    --font-size-p: 16px;
 }
 
-#app {
-    /* margin: 2em;
-    line-height: 1.5;
-    font-weight: 500; */
+#app, footer {
+    display:flex;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-size: var(--font-size-p);
+    color: var(--font-color);
+    background-color: var(--background-color);
+    gap:20px;
+}
+
+.footer-container{
+    display: grid;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    justify-items: center;
+    grid-template-columns: repeat(4, auto);
 }
 
 a {
-    color: #000000;
+    color: var(--font-color);
     text-decoration: underline;
 }
 
-#portrait{
-    width: 10%;
-    border-radius: 50%;
+h2{
+    font-size: var(--font-size-h2);
 }
 
-/* div{
-    border-left: #000000;
-    border-width: 2px;
-    border-left-style: solid;
-} */
+.portait-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height: 150px;
+}
+
+.portrait{
+    width: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+}
+
+.aboutMe-container,.lifeEvents-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.aboutMe-textContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #505050;
+    border-width: 10px;
+}
+.life-textContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #505050;
+    border-width: 10px;
+}
+p{
+    text-align: justify;
+}
+.years-container{
+    height: fit-content;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.year{
+    display: grid;
+    width:calc(80% + 60px);
+    height:max-content;
+    justify-self: center;
+    justify-items: center;
+    grid-template-columns: 1fr 10px 1fr;
+    grid-template-rows: 1fr;
+    gap:20px
+}
+.year-line{
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color);
+    grid-column: 2;
+    grid-row: 1;
+}
+.year-lineBottom{
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color);
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 40px;
+}
+.year-lineTop{
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color);
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: -20px;
+    padding-top: 40px;
+}
+.year-left{
+    width: 100%;
+    height: fit-content;
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 20px; 
+}
+.year-right{
+    width: 100%;
+    height: fit-content;
+    grid-column: 3;
+    grid-row: 1;
+    margin-bottom: 20px;
+}
+.event-Work{
+    border-radius: 15px;
+    border-style: solid;
+    border-color:var(--work-color);
+    border-width: 10px;
+    padding: 20px;
+}
+.event-Learn{
+    border-radius: 15px;
+    border-style: solid;
+    border-color:var(--education-color);
+    border-width: 10px;
+    padding: 20px;
+}
+.event-Project{
+    border-radius: 15px;
+    border-style: solid;
+    border-color:var(--project-color);
+    border-width: 10px;
+    padding: 20px;
+}
+.point{
+    position: relative;
+    top: 20px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    border-style: solid;
+    border-color:var(--border-color);
+    border-width: 10px;
+    width: 50px;
+    height: 50px;
+    justify-self: center;
+}
+.keywords{
+    margin: 2px; 
+    padding: 2px; 
+    border-color: 1px solid var(--border-color);
+    border-radius:2px;
+    background-color: var(--border-color);
+}
