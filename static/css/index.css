@@ -51,17 +51,27 @@ h2{
     top: 50px;
 }
 
-.aboutMe-container{
+.aboutMe-container,.lifeEvents-container{
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-bottom: 20px;
 }
-.aboutMe-textContainer{
+
+.aboutMe-textContainer {
     display: flex;
     flex-direction: column;
     width: 80%;
+    padding: 20px;
+    align-items: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #505050;
+    border-width: 10px;
+}
+.life-textContainer {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     align-items: center;
     border-radius: 15px;
@@ -95,6 +105,22 @@ p{
     grid-column: 2;
     grid-row: 1;
 }
+.year-lineBottom{
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color);
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 20px;
+}
+.year-lineTop{
+    height: 100%;
+    width: 100%;
+    background-color: var(--border-color);
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 20px;
+}
 .year-left{
     width: 100%;
     height: fit-content;
@@ -109,11 +135,36 @@ p{
     grid-row: 1;
     margin-bottom: 20px;
 }
-.event{
-    background-color: aqua;
+.event-Work{
     border-radius: 15px;
     border-style: solid;
-    border-color: #505050;
+    border-color:var(--work-color);
     border-width: 10px;
     padding: 20px;
+}
+.event-Learn{
+    border-radius: 15px;
+    border-style: solid;
+    border-color:var(--education-color);
+    border-width: 10px;
+    padding: 20px;
+}
+.event-Project{
+    border-radius: 15px;
+    border-style: solid;
+    border-color:var(--project-color);
+    border-width: 10px;
+    padding: 20px;
+}
+.point{
+    position: relative;
+    top: 20px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    border-style: solid;
+    border-color:var(--border-color);
+    border-width: 10px;
+    width: 50px;
+    height: 50px;
+    justify-self: center;
 }
