@@ -99,6 +99,15 @@ async function addEvents() {
     } else{
       keywordsString = "";
     }
+  //  //Keywords to string
+  //  let keywordsString = "";
+  //  if(event.keywords.length>0){
+  //   for(let i=0; i<event.keywords.length;i++){
+  //     keywordsString +=`<p class="Keyword">#${event.keywords[i]}</p>`
+  //   }
+  //  } else{
+  //    keywordsString = "";
+  //  }
 
     const eventsHtml =  `
     <div class = "event-${event.type}">
