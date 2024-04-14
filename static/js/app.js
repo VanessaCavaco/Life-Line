@@ -27,19 +27,6 @@ console.log(eventsData);
 // Extract unique years
 const uniqueYears = [...new Set(eventsData.map(item => item.year))];
 
-// //********** load About Me page **********\\  
-// async function loadAboutMePage() {
-//   // gets HTML About me view
-//   const response = await fetch('./static/html/AboutMe.html');
-//   if (!response.ok) {
-//     throw new Error(`Failed to fetch AboutMe.html: ${response.status}`);
-//   }
-//   //awaits the fectch response if it is successfull
-//   const aboutMeHtml = await response.text();
-//   //append the fetched html content to 'app' div
-//   document.getElementById('app').insertAdjacentHTML('beforeend', aboutMeHtml);
-// };
-
 //********** load event html **********\\     
 async function loadEventsContainer(eventType) {
   //gets experience html view
