@@ -4,21 +4,31 @@
     --border-color: #505050;
     --font-family: 'Quicksand', sans-serif;
     --font-color: #ffffff;
+    --education-color: #6ADFC1;
+    --project-color: #EA638D;
+    --work-color: #F6D95F;
     --font-size-h1: 22px;
     --font-size-h2: 20px;
     --font-size-h3: 18px;
     --font-size-p: 16px;
 }
 
-#app {
+#app, footer {
+    display:flex;
+    flex-direction: column;
     font-family: var(--font-family);
     font-size: var(--font-size-p);
     color: var(--font-color);
     background-color: var(--background-color);
+    gap:20px;
+}
+
+.footer-container{
+    padding: 20px;
 }
 
 a {
-    color: #505050;
+    color: var(--font-color);
     text-decoration: underline;
 }
 
